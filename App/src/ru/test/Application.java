@@ -16,6 +16,7 @@ public class Application {
                 }
             }
             return result;
+
         } catch (NumberFormatException e) {
             throw new MyArrayDataException("Не могу преобразовать элемент " + mass[i][j] + " в число. Он лежит в ячейке (" + (i+1) + "," + (j+1) + ")");
         } catch (Exception e) {
