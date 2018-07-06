@@ -1,18 +1,6 @@
 package ru.test;
 
-class MyArraySizeException extends Exception{
-    public MyArraySizeException(String m){
-        super(m);
-    }
-};
-
-class MyArrayDataException extends Exception{
-    public MyArrayDataException(String m){
-        super(m);
-    }
-};
-
-public class Lesson2 {
+public class Application {
     static Integer sumMassive (String[][] mass) throws MyArraySizeException, MyArrayDataException {
         if (mass.length != 4) throw new MyArraySizeException("Неверное число строк");
         int j = 0;
