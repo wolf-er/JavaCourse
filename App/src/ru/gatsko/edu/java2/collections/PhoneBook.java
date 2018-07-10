@@ -9,8 +9,6 @@ public class PhoneBook {
         HashSet<String> phones = new HashSet<String>();
         if (book.containsKey(name)){
             phones = book.get(name);
-            phones.add(phone);
-            book.put(name, phones);
         }
         phones.add(phone);
         book.put(name, phones);;
