@@ -30,8 +30,9 @@ public class ClientHandler {
                     while (true) {
                         String str = in.readUTF();
                         String nick = null;
+                        System.out.println(str);
                         if (str.startsWith("/auth")) {
-                            String[] parts = str.split("\t");
+                            String[] parts = str.split("\\s");
                             if (parts.length > 2 && parts[2].length() > 0) {
                                 nick = myServer.getAuthService().getNickByLoginPass(parts[1], parts[2]);
                             } else if (parts.length > 1 && parts[1].length() > 0){

@@ -72,7 +72,7 @@ public class MainWindow extends JFrame {
 
     private void onLogin(){
         try {
-            if (!loginInput.getText().contains(" ")){
+            if (loginInput.getText().contains(" ")){
                 textArea.append("Логин не должен содержать пробелы\n");
             } else if (loginInput.getText().length() > 0) {
                 out.writeUTF("/auth " + loginInput.getText() + " " + passwordInput.getText());
