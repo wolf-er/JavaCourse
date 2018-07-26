@@ -22,7 +22,6 @@ public final class AuthService{
         }
         return null;
     }
-
     public final String getNickIfEmpty(String login) {
         for (final Entry o : entries) {
             final Boolean isNickUsed = o.login.equals(login) || o.nick.equals(login);
