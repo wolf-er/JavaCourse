@@ -10,6 +10,7 @@ import java.io.DataInputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
 import java.net.Socket;
+import java.net.SocketException;
 
 public class MainWindow extends JFrame {
     private final JTextArea textArea = new JTextArea();
@@ -51,6 +52,7 @@ public class MainWindow extends JFrame {
             System.out.println(e.getLocalizedMessage());
         } finally{
             try{
+                textArea.append("Соединение с сервером закрыто\n");
                 socket.close();
             } catch (IOException e){
                 e.printStackTrace();
