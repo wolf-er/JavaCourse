@@ -63,7 +63,7 @@ public class MainWindow extends JFrame {
 
     private void onAction(){
         try {
-            if (textInput.getText().length() > 0) {
+            if (!textInput.getText().isEmpty()) {
                 out.writeUTF(textInput.getText());
                 textInput.setText("");
             }
@@ -76,7 +76,7 @@ public class MainWindow extends JFrame {
         try {
             if (loginInput.getText().contains(" ")){
                 textArea.append("Логин не должен содержать пробелы\n");
-            } else if (loginInput.getText().length() > 0) {
+            } else if (!loginInput.getText().isEmpty()) {
                 out.writeUTF("/auth " + loginInput.getText() + " " + passwordInput.getText());
             } else {
                 textArea.append("Введите логин\n");
