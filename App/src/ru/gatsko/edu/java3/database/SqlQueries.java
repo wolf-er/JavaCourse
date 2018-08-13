@@ -17,6 +17,7 @@ public class SqlQueries {
     static void insertGoods(Connection conn) throws SQLException {
         String sql = "Insert into goods (prodid,title,cost) values (?,?,?)";
         stInsert = conn.prepareStatement(sql);
+        conn.setAutoCommit(false);
         for (int i = 1; i <= 10000; i++){
             int cost = i * 10;
             String name = "товар" + i;
@@ -26,8 +27,9 @@ public class SqlQueries {
             stInsert.setInt(3,cost);
             stInsert.addBatch();
         }
-        System.out.println(sql);
         stInsert.executeBatch();
+        conn.commit();
+        conn.setAutoCommit(true);
     }
     static String selectByName(Statement st, String name) throws SQLException {
         String sql = "SELECT cost from goods where title = '" + name + "'";

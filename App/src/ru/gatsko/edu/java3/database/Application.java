@@ -13,9 +13,9 @@ public class Application {
         try {
             conn = DriverManager.getConnection("jdbc:sqlite:dbsql");
             st = conn.createStatement();
-            //SqlQueries.createTable(st);
+            SqlQueries.createTable(st);
             System.out.println("DB Table was cleared");
-            //SqlQueries.insertGoods(conn);
+            SqlQueries.insertGoods(conn);
             System.out.println("Data was inserted");
             Scanner in = new Scanner(System.in);
             while (true){
