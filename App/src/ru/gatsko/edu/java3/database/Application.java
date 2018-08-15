@@ -18,10 +18,12 @@ public class Application {
             SqlQueries.insertGoods(conn);
             System.out.println("Data was inserted");
             Scanner in = new Scanner(System.in);
+            Logger logger = Logger.makeLogger();
             while (true){
                 String input = in.nextLine();
                 if ("end".equals(input)){break;}
                 if (!input.isEmpty()) {
+                    logger.logCommand(input);
                     if (input.startsWith("/цена") && input.split("\\s").length == 2) {
                         System.out.println(SqlQueries.selectByName(st, input.split("\\s")[1]));
                     } else if (input.startsWith("/сменитьцену") && input.split("\\s").length == 3) {
@@ -32,7 +34,10 @@ public class Application {
                         System.out.println("Неизвестная команда");
                     }
                 }
+                logger.totalQueries++;
+                System.out.println("Всего было " + logger.totalQueries + " команд");
             }
+            logger.saveLogger();
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {
