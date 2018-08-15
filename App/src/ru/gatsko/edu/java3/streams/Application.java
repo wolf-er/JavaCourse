@@ -164,7 +164,7 @@ public class Application {
             if ("end".equals(input)){break;}
             if (!input.isEmpty()) {
                 try{ WorkWithHugeFile.ReaderPage(hugeFileName, Integer.parseInt(input) - 1, PAGESIZE);
-                } catch (NumberFormatException e) { System.out.println("В качестве цены должно быть введено число"); }
+                } catch (NumberFormatException e) { System.out.println("В качестве номера страницы должно быть введено число"); }
 
             }
         }
