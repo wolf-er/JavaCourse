@@ -38,31 +38,25 @@ class MFU{
     Scan scan = new Scan();
     Print print = new Print();
     class Scan{
-        final Object lock = new Object();
-        public void scan(String doc){
-            synchronized (lock){
-                System.out.println("Start scanning document " + doc);
-                try {
-                    Thread.sleep(4000);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-                System.out.println("Scanning document " + doc + " finished");
+        public synchronized void scan(String doc){
+            System.out.println("Start scanning document " + doc);
+            try {
+                Thread.sleep(4000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
             }
+            System.out.println("Scanning document " + doc + " finished");
         }
     }
     class Print{
-        final Object lock = new Object();
-        public void print(String doc){
-            synchronized (lock){
-                System.out.println("Start printing document " + doc);
-                try {
-                    Thread.sleep(2000);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-                System.out.println("Printing document " + doc + " finished");
+        public synchronized void print(String doc){
+            System.out.println("Start printing document " + doc);
+            try {
+                Thread.sleep(2000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
             }
+            System.out.println("Printing document " + doc + " finished");
         }
     }
 
